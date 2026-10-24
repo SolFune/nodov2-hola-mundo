@@ -16,13 +16,11 @@ test.describe("Validaciones Login", () => {
         //Selecciona caja de texto y completa con valores name y password
         await page.getByRole('textbox', { name: 'Email Address' }).fill("admin@example.com");
         await page.getByPlaceholder('Enter your password').fill("admin123");
+        await page.getByRole('button', { name: 'Sign In' }).click();  
 
         //Validar resultado obtenido con lo esperado
         await expect (page.getByText('Logout', { exact: true })).toBeVisible();
 
-
-
     })
-
 
 });
