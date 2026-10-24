@@ -19,10 +19,10 @@ test.describe("Registro de usuario", () => {
     test("CPF_001 Registro de usuario con datos correctos", async ({ page}) => {
                 //Selecciona caja de texto y completa con valores name y password
         await page.getByRole('textbox', { name: 'Full Name' }).fill("Solange");
-        await page.getByRole('textbox', { name: 'Email Address' }).fill("sfunes@example.com");
+        await page.getByRole('textbox', { name: 'Email Address' }).fill("sfune@example.com");
         await page.getByLabel('Password', { exact: true }).fill("admin123");
         await page.getByLabel('Confirm Password').fill("admin123");
-        await page.getByRole('button', { name: 'Create Account' }).click()
+        await page.getByRole('button', { name: 'Create Account' }).click();
         //Validar resultado obtenido con lo esperado
         await expect (page.getByText('Logout', { exact: true })).toBeVisible();
     })
@@ -32,7 +32,7 @@ test.describe("Registro de usuario", () => {
         await page.getByRole('textbox', { name: 'Email Address' }).fill("admin@example.com");
         await page.getByLabel('Password', { exact: true }).fill("admin");
         await page.getByLabel('Confirm Password').fill("admin");
-        await page.getByRole('button', { name: 'Create Account' }).click()
+        await page.getByRole('button', { name: 'Create Account' }).click();
         await expect (page.getByText('Password must be at least 6 characters long', { exact: true })).toBeVisible();
     })
 
@@ -41,7 +41,7 @@ test.describe("Registro de usuario", () => {
         await page.getByRole('textbox', { name: 'Email Address' }).fill("admin@example.com");
         await page.getByLabel('Password', { exact: true }).fill("admin123");
         await page.getByLabel('Confirm Password').fill("admin123");
-        await page.getByRole('button', { name: 'Create Account' }).click()
+        await page.getByRole('button', { name: 'Create Account' }).click();
        await expect (page.getByText('Email already registered', { exact: true })).toBeVisible();    
     });
 
